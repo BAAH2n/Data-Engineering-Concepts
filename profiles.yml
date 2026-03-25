@@ -1,8 +1,8 @@
-jaffle_shop:
+urban_mobility:
 
   target: dev
   outputs:
     dev:
       type: duckdb
-      path: 'jaffle_shop.duckdb'
-      threads: 24
+      path: 'nyc_taxi.duckdb'
+      threads: 8

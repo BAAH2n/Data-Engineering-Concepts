@@ -12,3 +12,4 @@ venv/
 env/
 **/*.duckdb
 **/*.duckdb.wal
+ass3/
