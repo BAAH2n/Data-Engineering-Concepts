@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: minio_source
+    schema: main
+    tables:
+      - name: rides
+        external:
+          location: "s3://my-dbt-source/rides.csv"
+          format: "csv"

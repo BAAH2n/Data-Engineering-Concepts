@@ -15,4 +15,4 @@ rated_drivers as (
     from stg_drivers
 )
 
-select * from enriched_drivers
+select * from rated_drivers

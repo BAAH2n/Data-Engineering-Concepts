@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_rides
+    description: "Очищена таблиця фактів про транзакції (поїздки) таксі."
+    columns:
+      - name: ride_id
+        description: "Унікальний ідентифікатор поїздки (Primary Key)."
+        tests:
+          - unique
+          - not_null
+      - name: driver_id
+        description: "ID водія, який виконав поїздку."
+        tests:
+          - not_null
+          
+  - name: stg_drivers
+    description: "Очищені базові дані про водіїв."
+    columns:
+      - name: driver_id
+        description: "Унікальний ідентифікатор водія."
+        tests:
+          - unique
+          - not_null
+  - name: stg_events
+    description: "Очищені дані про масові заходи та події в районах."
+    columns:
+      - name: event_id
+        description: "Унікальний ідентифікатор події."
+        tests:
+          - unique
+          - not_null
+      - name: location_id
+        description: "ID зони, де відбувається подія."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_taxi_zones')
+              field: location_id
+
+  - name: stg_taxi_zones
+    description: "Довідник районів та зон таксі."
+    columns:
+      - name: location_id
+        description: "Унікальний ідентифікатор зони."
+        tests:
+          - unique
+          - not_null
+      - name: borough_name
+        description: "Назва округу (наприклад, Manhattan, Brooklyn)."
+        tests:
+          - not_null

@@ -10,7 +10,7 @@ borough_zone as (
         borough_name,
         zone_name,
         service_zone_name,
-        concat(borough_name, " - ", zone_name)
+        concat(borough_name, ' - ', zone_name)
         
     from stg_taxi_zones
 )
